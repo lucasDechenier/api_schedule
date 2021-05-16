@@ -112,18 +112,10 @@ userController = {
                 res.send(id);
             }
             else{
-                res.send("Não foi possível deletar seu agendamento, falta menos de 6 horas");
+                res.send("Não foi possível deletar seu agendamento, falta menos de 6 horas, ou a tarefa já foi iniciada");
             }
         }
     }
 }
 
 module.exports = userController;
-
-// ryanne 
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlmZGExMjc3YmRlMDJhZmM0YzEwYTgiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTA4ODgxNH0.bwlMqZ_i3jHmoTfkPwzgVSjv0ASwckNyh3gCZaCTYjQ
-
-// Lucas
-
-// 	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlmZGNmOGM2NGJlODJiYzg0ZDM2ZTUiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTA4OTU0Mn0.T6Ma6DxU4Io2UaBBxplJ3RtJA285NGRvoPSnjVIf8to

@@ -11,10 +11,10 @@ const path = require('path');
 
 app.use('/user', express.json(), userRouter);
 
-app.use('/admin',express.json(), adminRouter);
+app.use('/admin', express.json(), adminRouter);
 
-app.use('/', (req,res) =>{
-     res.render('register');
+app.use('/', (req, res) =>{ 
+    res.send("Página inicial");
 });
 
 app.listen(process.env.PORT, ()=>{

@@ -10,7 +10,8 @@ const verifySchedule ={
             intendHour: a.getHours(),
             intendMinute: a.getMinutes()
         }
-        if(aux.intendDay != verify.startDay) return true;
+        if(aux.intendDay > verify.startDay) return false; //Tentando cancelar uma tarefa após já ter sido iniciada
+        if(aux.intendDay < verify.startDay) return true; //Tentando cancelar uma tarefa no dia anterior
         let minut1 = aux.intendHour*60 + aux.intendMinute;
         let minut2 = verify.startHour*60 + verify.startMinute;
         let dif = minut2 - minut1;
