@@ -47,7 +47,7 @@
     "createdAt": "2021-05-17T13:42:22.494Z",
     "__v": 0
     }
-    ```</br>
+    ```
 
 
 - ### **login (http://localhost:3000/user/login) rota do tipo POST:**
