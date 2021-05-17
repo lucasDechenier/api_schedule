@@ -177,12 +177,13 @@
 ### 🔐 Administradores:
 #### **Utilize no Header de todas as rotas o Content-Type como application/json**
 ### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
-    ```
-    {
-    "email": "admin@hotmail.com",
-    "password": "admin123"
-    }
-    ```
+
+```
+{
+"email": "admin@hotmail.com",
+"password": "admin123"
+}
+```
 
 #### **O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:**
 
