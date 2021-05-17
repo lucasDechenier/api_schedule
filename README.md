@@ -22,7 +22,7 @@
 
 ## 📱 Rotas:
 ### Usuarios:
-###### **Utilize no Header de todas as rotas o Content-Type como application/json**
+##### **Utilize no Header de todas as rotas o Content-Type como application/json**
 - **Registro (http://localhost:3000/user/register) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
@@ -31,11 +31,11 @@
     "name": "Nome Desejado",
     "email": "email@extensãodoemail.com.br",
     "password": "senha123"
-	}`
+	}```
 	
 	Como resposta irá obter o seguinte JSON com a senha já criptografada:
 	
-	`{
+	```{
     "admin": false,
     "_id": "60a272be07d02d3820b4646a",
     "name": "Nome Desejado",
@@ -49,7 +49,7 @@
 
 	Deverá enviar um JSON da seguinte maneira:
 	
-	```{
+    ```{
     "email": "email@extensãodoemail.com.br",
     "password": "senha123"
     }```
@@ -151,7 +151,7 @@
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
 ### Administradores:
-###### Utilize no Header de todas as rotas o Content-Type como application/json
+##### **Utilize no Header de todas as rotas o Content-Type como application/json**
 ###### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
 
     ```{
