@@ -176,7 +176,7 @@
 &nbsp;
 ### 🔐 Administradores:
 #### **Utilize no Header de todas as rotas o Content-Type como application/json**
-#### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
+### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
     ```
     {
     "email": "admin@hotmail.com",
@@ -215,7 +215,8 @@
 	<p align="center">
     <img alt="header1" src="assets/header1.jpg" />
 	</p>
-&nbsp;
+
+
 - ### **Ver tarefas agendadas (http://localhost:3000/admin/viewSchedule) rota do tipo GET:**
 
 	Deverá enviar via header o token do administrador/operador que deseja ver as tarefas que estão agendadas no sistema:
@@ -246,7 +247,8 @@
     "__v": 0
     }]
     ```
-&nbsp;
+
+
 - ### **Cancelar uma tarefa já agendada (http://localhost:3000/admin/cancel/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
@@ -266,7 +268,8 @@
     ```
 
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
-&nbsp;
+
+
 - ### **Completar uma tarefa, serviço terminado (http://localhost:3000/admin/Complete/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada (lembre-se de enviar o token do usuário):
