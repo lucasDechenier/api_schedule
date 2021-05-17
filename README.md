@@ -27,11 +27,13 @@
 
 	Deverá enviar um JSON da seguinte maneira:
 	
-	```{
+	```
+    {
     "name": "Nome Desejado",
     "email": "email@extensãodoemail.com.br",
     "password": "senha123"
-	}```
+	}
+    ```
 	
 	Como resposta irá obter o seguinte JSON com a senha já criptografada:
 	
@@ -43,7 +45,7 @@
     "password": "$2a$10$zA11xRZ9gSVw4sH3NXzl4.Jx1/nCwMJA0I7nGs/u6ZwhVeBM3MZz2",
     "createdAt": "2021-05-17T13:42:22.494Z",
     "__v": 0
-    }```
+    }
 
 - **login (http://localhost:3000/user/login) rota do tipo POST:**
 
