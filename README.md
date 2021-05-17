@@ -20,11 +20,10 @@
 - Existe um sistema de roles, onde existe o usuário e o operador.
 - Só podem existir 3 agendamentos ativos ocorrendo ao mesmo momento, no caso de agendamento futuros, caso em um intervalo de 40 minutos seja feito 3 agendamentos, o quarto agendamento não estará disponível e isso é obtido como resposta da requisição.
 
-## 📱 Rotas:
-### Usuarios:
+## ✈️ Rotas:
+### 😁 Usuarios:
 ##### **Utilize no Header de todas as rotas o Content-Type como application/json**
 - **Registro (http://localhost:3000/user/register) rota do tipo POST:**
----
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -50,8 +49,7 @@
     }
     ```</br>
 &nbsp;
-- **login (http://localhost:3000/user/login) rota do tipo POST:**
----
+- ### **login (http://localhost:3000/user/login) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -80,9 +78,8 @@
 	<p align="center">
     <img alt="header1" src="assets/header1.jpg" />
 	</p>
-
-<br/>
-- **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
+&nbsp;
+- ### **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
 
 	Deverá enviar um JSON da seguinte maneira(lembre-se de enviar o token do usuário):
 	
@@ -111,9 +108,8 @@
     "__v": 0
     }
     ```
-
-<br/>
-- **Ver tarefas agendadas (http://localhost:3000/user/viewSchedule) rota do tipo GET:**
+&nbsp;
+- ### **Ver tarefas agendadas (http://localhost:3000/user/viewSchedule) rota do tipo GET:**
 
 	Deverá enviar via header o token do usuário que deseja ver suas tarefas:
 
@@ -151,9 +147,8 @@
     "__v": 0
     }]
     ```
-
-<br/>
-- **Cancelar uma tarefa já agendada (http://localhost:3000/user/cancel/schedule) rota do tipo DELETE:**
+&nbsp;
+- ### **Cancelar uma tarefa já agendada (http://localhost:3000/user/cancel/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma(lembre-se de enviar o token do usuário):
 
@@ -174,11 +169,10 @@
     ```
 
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
-
-### Administradores:
+&nbsp;
+### 🔐 Administradores:
 ##### **Utilize no Header de todas as rotas o Content-Type como application/json**
 ##### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
-
     ```
     {
     "email": "admin@hotmail.com",
@@ -188,7 +182,7 @@
 
 ##### **O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:**
 
-- **Login (http://localhost:3000/admin/login) rota do tipo POST:**
+- ### **Login (http://localhost:3000/admin/login) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -209,19 +203,21 @@
 
 	**Todas as rotas agora vão precisar receber no header o token dessa maneira:**
 	
-	```headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"```
+	```
+    headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+    ```
 
 	**Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:**
 	<p align="center">
     <img alt="header1" src="assets/header1.jpg" />
 	</p>
-
-- **Ver tarefas agendadas (http://localhost:3000/admin/viewSchedule) rota do tipo GET:**
+&nbsp;
+- ### **Ver tarefas agendadas (http://localhost:3000/admin/viewSchedule) rota do tipo GET:**
 
 	Deverá enviar via header o token do administrador/operador que deseja ver as tarefas que estão agendadas no sistema:
 
     ```
-    headers('authorization-token') = 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+    headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
     ```
 
     - O operador do sistema pode ver o agendamento de todos os usuários.
@@ -246,8 +242,8 @@
     "__v": 0
     }]
     ```
-
-- **Cancelar uma tarefa já agendada (http://localhost:3000/admin/cancel/schedule) rota do tipo DELETE:**
+&nbsp;
+- ### **Cancelar uma tarefa já agendada (http://localhost:3000/admin/cancel/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma(lembre-se de enviar o token do usuário):
 
@@ -266,8 +262,8 @@
     ```
 
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
-
-- **Completar uma tarefa, serviço terminado (http://localhost:3000/admin/Complete/schedule) rota do tipo DELETE:**
+&nbsp;
+- ### **Completar uma tarefa, serviço terminado (http://localhost:3000/admin/Complete/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada(lembre-se de enviar o token do usuário):
 
@@ -287,16 +283,15 @@
 
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
-
 ## 🧪 Tecnologias
 [![JavaScript](https://camo.githubusercontent.com/62d37abe760867620e0baea1066303719d630a82936837ba7bff6b0c754e3c9f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742532302d2532333332333333302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)   ![NodeJS](https://camo.githubusercontent.com/cc96d7d28a6ca21ddbb1f2521d751d375230ed840271e6a4c8694cf87cc60c14/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6f64652e6a732532302d2532333433383533442e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6e6f64652e6a73266c6f676f436f6c6f723d7768697465)
 
-### 🔨  Dependências e Características
+### 🔨  Dependências
 
-######Banco de dados (Está em núvem)
+###### Banco de dados (Está em núvem)
 - [MongoDB com Mongoose](https://mongoosejs.com/)
 
-######Depedências
+###### Depedências
 - [Node Express](https://expressjs.com/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [jsonwebtoken](https://jwt.io/)
