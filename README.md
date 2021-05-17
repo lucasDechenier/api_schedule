@@ -24,6 +24,7 @@
 ### Usuarios:
 ##### **Utilize no Header de todas as rotas o Content-Type como application/json**
 - **Registro (http://localhost:3000/user/register) rota do tipo POST:**
+---
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -47,9 +48,10 @@
     "createdAt": "2021-05-17T13:42:22.494Z",
     "__v": 0
     }
-    ```
-
+    ```</br>
+&nbsp;
 - **login (http://localhost:3000/user/login) rota do tipo POST:**
+---
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -64,7 +66,7 @@
 	
 	```
     {
-    "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.      RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+    "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
     }
     ```
 
@@ -79,6 +81,7 @@
     <img alt="header1" src="assets/header1.jpg" />
 	</p>
 
+<br/>
 - **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
 
 	Deverá enviar um JSON da seguinte maneira(lembre-se de enviar o token do usuário):
@@ -109,6 +112,7 @@
     }
     ```
 
+<br/>
 - **Ver tarefas agendadas (http://localhost:3000/user/viewSchedule) rota do tipo GET:**
 
 	Deverá enviar via header o token do usuário que deseja ver suas tarefas:
@@ -148,6 +152,7 @@
     }]
     ```
 
+<br/>
 - **Cancelar uma tarefa já agendada (http://localhost:3000/user/cancel/schedule) rota do tipo DELETE:**
 
 	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma(lembre-se de enviar o token do usuário):
