@@ -23,7 +23,7 @@
 ## ✈️ Rotas:
 ### 😁 Usuarios:
 ##### **Utilize no Header de todas as rotas o Content-Type como application/json**
-- **Registro (http://localhost:3000/user/register) rota do tipo POST:**
+- ### **Registro (http://localhost:3000/user/register) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -48,7 +48,8 @@
     "__v": 0
     }
     ```</br>
-&nbsp;
+
+
 - ### **login (http://localhost:3000/user/login) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
@@ -78,10 +79,11 @@
 	<p align="center">
     <img alt="header1" src="assets/header1.jpg" />
 	</p>
-&nbsp;
+
+
 - ### **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
 
-	Deverá enviar um JSON da seguinte maneira(lembre-se de enviar o token do usuário):
+	Deverá enviar um JSON da seguinte maneira (lembre-se de enviar o token do usuário):
 	
 	```
     {
@@ -108,7 +110,8 @@
     "__v": 0
     }
     ```
-&nbsp;
+
+
 - ### **Ver tarefas agendadas (http://localhost:3000/user/viewSchedule) rota do tipo GET:**
 
 	Deverá enviar via header o token do usuário que deseja ver suas tarefas:
@@ -147,10 +150,11 @@
     "__v": 0
     }]
     ```
-&nbsp;
+
+
 - ### **Cancelar uma tarefa já agendada (http://localhost:3000/user/cancel/schedule) rota do tipo DELETE:**
 
-	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma(lembre-se de enviar o token do usuário):
+	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
 
     ```
     {
@@ -171,8 +175,8 @@
     Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 &nbsp;
 ### 🔐 Administradores:
-##### **Utilize no Header de todas as rotas o Content-Type como application/json**
-##### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
+#### **Utilize no Header de todas as rotas o Content-Type como application/json**
+#### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
     ```
     {
     "email": "admin@hotmail.com",
@@ -180,7 +184,7 @@
     }
     ```
 
-##### **O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:**
+#### **O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:**
 
 - ### **Login (http://localhost:3000/admin/login) rota do tipo POST:**
 
@@ -245,7 +249,7 @@
 &nbsp;
 - ### **Cancelar uma tarefa já agendada (http://localhost:3000/admin/cancel/schedule) rota do tipo DELETE:**
 
-	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma(lembre-se de enviar o token do usuário):
+	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
 
     ```
     {
@@ -265,7 +269,7 @@
 &nbsp;
 - ### **Completar uma tarefa, serviço terminado (http://localhost:3000/admin/Complete/schedule) rota do tipo DELETE:**
 
-	Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada(lembre-se de enviar o token do usuário):
+	Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada (lembre-se de enviar o token do usuário):
 
     ```
     {

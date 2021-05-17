@@ -76,6 +76,7 @@ userController = {
         })
         if(schedule.startMinute%10 != 0) {return res.status(400).send("Só se pode agendar tarefas a cada 10 minutos")}
         if(schedule.startHour < 9 || schedule.startHour > 16) {return res.status(400).send("Os agendamentos devem ser feitos entre as 9:00h e 16:00h")}
+        if((schedule.startHour == 16) &&  (schedule.startMinute != 0)){return res.status(400).send("Os agendamentos devem ser feitos entre as 9:00h e 16:00h")}
         try {
             const savedSchedule = await schedule.save();
             res.send(savedSchedule);
