@@ -60,13 +60,13 @@ userController = {
             startHour: req.body.startHour,
             startMinute: req.body.startMinute
         })
-        if (selectedSchedule) { return res.status(406).send("Já existe uma tarefa para esse horário") }
+        if (selectedSchedule) { return res.status(406).send("Já existe uma tarefa para esse horário")}
 
         // Verficando se já existe 3 tarefas para acontecer
         let quant = await verifySchedule.Later(req);
-        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
+        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas")}
         quant = await verifySchedule.Prev(req);
-        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
+        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas")}
         // Caso não exista ele irá criar uma nova tarefa
         const schedule = new Schedule({
             userId: req.user._id,
@@ -74,7 +74,8 @@ userController = {
             startHour: req.body.startHour,
             startMinute: req.body.startMinute,
         })
-        if(schedule.startMinute%10 != 0) {return res.status(400).send("Só se pode agendar tarefas a cada 10 minutos");}
+        if(schedule.startMinute%10 != 0) {return res.status(400).send("Só se pode agendar tarefas a cada 10 minutos")}
+        if(schedule.startHour < 9 || schedule.startHour > 16) {return res.status(400).send("Os agendamentos devem ser feitos entre as 9:00h e 16:00h")}
         try {
             const savedSchedule = await schedule.save();
             res.send(savedSchedule);
