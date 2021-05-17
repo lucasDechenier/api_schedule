@@ -60,13 +60,13 @@ userController = {
             startHour: req.body.startHour,
             startMinute: req.body.startMinute
         })
-        if (selectedSchedule) { return res.status(400).send("Já existe uma tarefa para esse horário") }
+        if (selectedSchedule) { return res.status(406).send("Já existe uma tarefa para esse horário") }
 
         // Verficando se já existe 3 tarefas para acontecer
         let quant = await verifySchedule.Later(req);
-        if (quant >= 3) { return res.status(400).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
+        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
         quant = await verifySchedule.Prev(req);
-        if (quant >= 3) { return res.status(400).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
+        if (quant >= 3) { return res.status(406).send("Não se pode agendar para esse horário, pois já tem 3 taregas") }
         // Caso não exista ele irá criar uma nova tarefa
         const schedule = new Schedule({
             userId: req.user._id,
@@ -74,6 +74,7 @@ userController = {
             startHour: req.body.startHour,
             startMinute: req.body.startMinute,
         })
+        if(schedule.startMinute%10 != 0) {return res.status(400).send("Só se pode agendar tarefas a cada 10 minutos");}
         try {
             const savedSchedule = await schedule.save();
             res.send(savedSchedule);
@@ -84,7 +85,6 @@ userController = {
 
     // Responsável por visualizar todos os agendamentos realizados de um cliente
     viewSchedule: async (req, res) => {
-        console.log("10");
         try{
             let selectedSchedule = await Schedule.find({userId: req.user._id});
             res.send(selectedSchedule);
@@ -107,7 +107,7 @@ userController = {
         } else {
             // Verificando se a tarefa a ser cancelada tem menos de 6 horas
             if(verifySchedule.Cancel(verify)){
-                console.log("Na vdd entrei aqui");
+
                 await Schedule.remove(verify)
                 res.send(id);
             }

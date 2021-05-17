@@ -2,12 +2,8 @@
 require('dotenv').config(); // npm install dotenv
 const express = require('express'); // npm install express
 const app = express();
-
 const userRouter = require('./routes/userRouter'); // Importando as rotas user
-const adminRouter = require('./routes/adminRouter') ; // Importando as rotas admin 
-
-const path = require('path');
-
+const adminRouter = require('./routes/adminRouter') ; // Importando as rotas admin
 
 app.use('/user', express.json(), userRouter);
 
