@@ -38,7 +38,8 @@
   "createdAt": "2021-05-17T13:42:22.494Z",
   "__v": 0
 }`
-- **login (http://localhost:3000/user/login) rota do tipo POST: **
+
+- **login (http://localhost:3000/user/login) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira:
 	
@@ -59,12 +60,12 @@
 
 	**Caso utilize o insomnia, utilize a imagem abaixo:**
 	<p align="center">
-    <img alt="Weather app" title="Weather app" 			src="https://github.com/lucasDechenier/api_schedule/blob/master/assets/header1.png" />
+    <img alt="header1" title="Weather app" src="https://github.com/lucasDechenier/api_schedule/blob/master/assets/header1.jpg" />
 	</p>
 
 - **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
 
-	Deverá enviar um JSON da seguinte maneira:
+	Deverá enviar um JSON da seguinte maneira(Lembre-se de enviar o token do usuário):
 	
 	`{
    "startDay": 16,
@@ -74,7 +75,8 @@
 	- Os agendamentos só podem ser feitos de 10 em 10 minutos
 	- Só pode ser feito um agendamento no mesmo horário a não ser que seja feito por outro usuário
 	- Caso exista dentro de quarenta minutos 3 agendamentos que vão ser realizados de forma simultânea, o quarto agendamento a tentar ser realizado não irá ser permitido.
-Como resposta irá obter o seguinte JSON com a senha já criptografada:
+    
+    Como resposta irá obter o seguinte JSON com a senha já criptografada:
 	
 	`{
   "admin": false,
