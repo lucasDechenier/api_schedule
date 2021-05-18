@@ -19,7 +19,7 @@ router.post('/register', userController.register);
 
 router.post('/login', userController.login);
 
-router.get('/schedule',authUser, userController.schedule);
+router.post('/schedule',authUser, userController.schedule);
 
 router.get('/viewSchedule',authUser, userController.viewSchedule);
 

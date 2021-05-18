@@ -1,26 +1,26 @@
 const Schedule = require('../models/Schedule')
 
-const verifySchedule ={
+const verifySchedule = {
     // Função verifica se falta mais de 360 minutos entre a tarefa que quer cancelar e o tempo atual
-    Cancel: (verify) =>{
+    Cancel: (verify) => {
         const a = new Date;
-        
+
         let aux = {
             intendDay: a.getDate(),
             intendHour: a.getHours(),
             intendMinute: a.getMinutes()
         }
-        if(aux.intendDay > verify.startDay) return false; //Tentando cancelar uma tarefa após já ter sido iniciada
-        if(aux.intendDay < verify.startDay) return true; //Tentando cancelar uma tarefa no dia anterior
-        let minut1 = aux.intendHour*60 + aux.intendMinute;
-        let minut2 = verify.startHour*60 + verify.startMinute;
+        if (aux.intendDay > verify.startDay) return false; //Tentando cancelar uma tarefa após já ter sido iniciada
+        if (aux.intendDay < verify.startDay) return true; //Tentando cancelar uma tarefa no dia anterior
+        let minut1 = aux.intendHour * 60 + aux.intendMinute;
+        let minut2 = verify.startHour * 60 + verify.startMinute;
         let dif = minut2 - minut1;
-        if(dif > 360)return true;
+        if (dif > 360) return true;
         else return false;
     },
 
     // Função Verifica quantas tarefas no intervadlo de 40 minutos tem previamente a escolhida para ser criada
-    Prev: async (req) => {
+    Prev: async (req) => { // REFEITO
         let aux = {
             startDay: req.body.startDay,
             startHour: req.body.startHour,
@@ -32,10 +32,9 @@ const verifySchedule ={
             startHour: aux.startHour,
             startMinute: aux.startMinute
         })
-        console.log(selectedSchedule.length);
         quant += selectedSchedule.length;
-    
-        if (aux.startMinute == 0) {
+
+        if (aux.startMinute == 0) { // REFEITO
             aux.startHour -= 1;
             aux.startMinute = 50;
             selectedSchedule = await Schedule.find({
@@ -43,7 +42,6 @@ const verifySchedule ={
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
             aux.startMinute = 40;
             selectedSchedule = await Schedule.find({
@@ -51,18 +49,23 @@ const verifySchedule ={
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
-        } else {
+            aux.startMinute = 30;
+            selectedSchedule = await Schedule.find({
+                startDay: aux.startDay,
+                startHour: aux.startHour,
+                startMinute: aux.startMinute
+            })
+            quant += selectedSchedule.length;
+        } else { // Refeito
             aux.startMinute -= 10;
             selectedSchedule = await Schedule.find({
                 startDay: aux.startDay,
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
-            if (aux.startMinute == 0) {
+            if (aux.startMinute == 0) { // Refeito
                 aux.startHour -= 1;
                 aux.startMinute = 50;
                 selectedSchedule = await Schedule.find({
@@ -70,17 +73,41 @@ const verifySchedule ={
                     startHour: aux.startHour,
                     startMinute: aux.startMinute
                 })
-                console.log(selectedSchedule.length);
                 quant += selectedSchedule.length;
-            } else {
+                aux.startMinute = 40;
+                selectedSchedule = await Schedule.find({
+                    startDay: aux.startDay,
+                    startHour: aux.startHour,
+                    startMinute: aux.startMinute
+                })
+                quant += selectedSchedule.length;
+            } else { // Refeito
                 aux.startMinute -= 10;
                 selectedSchedule = await Schedule.find({
                     startDay: aux.startDay,
                     startHour: aux.startHour,
                     startMinute: aux.startMinute
                 })
-                console.log(selectedSchedule.length);
                 quant += selectedSchedule.length;
+                if (aux.startMinute == 0) { // Refeito
+                    aux.startHour -= 1;
+                    aux.startMinute = 50;
+                    selectedSchedule = await Schedule.find({
+                        startDay: aux.startDay,
+                        startHour: aux.startHour,
+                        startMinute: aux.startMinute
+                    })
+                    quant += selectedSchedule.length;
+                }
+                else { // Refeito
+                    aux.startMinute -= 10;
+                    selectedSchedule = await Schedule.find({
+                        startDay: aux.startDay,
+                        startHour: aux.startHour,
+                        startMinute: aux.startMinute
+                    })
+                    quant += selectedSchedule.length;
+                }
             }
         }
         return quant;
@@ -99,10 +126,9 @@ const verifySchedule ={
             startHour: aux.startHour,
             startMinute: aux.startMinute
         })
-        console.log(selectedSchedule.length);
         quant += selectedSchedule.length;
-    
-        if (aux.startMinute == 50) {
+
+        if (aux.startMinute == 50) { // REFEITO
             aux.startHour += 1;
             aux.startMinute = 00;
             selectedSchedule = await Schedule.find({
@@ -110,7 +136,6 @@ const verifySchedule ={
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
             aux.startMinute = 10;
             selectedSchedule = await Schedule.find({
@@ -118,18 +143,23 @@ const verifySchedule ={
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
-        } else {
+            aux.startMinute = 20;
+            selectedSchedule = await Schedule.find({
+                startDay: aux.startDay,
+                startHour: aux.startHour,
+                startMinute: aux.startMinute
+            })
+            quant += selectedSchedule.length;
+        } else { // REFEITO
             aux.startMinute += 10;
             selectedSchedule = await Schedule.find({
                 startDay: aux.startDay,
                 startHour: aux.startHour,
                 startMinute: aux.startMinute
             })
-            console.log(selectedSchedule.length);
             quant += selectedSchedule.length;
-            if (aux.startMinute == 50) {
+            if (aux.startMinute == 50) { // REFEITO
                 aux.startHour += 1;
                 aux.startMinute = 0;
                 selectedSchedule = await Schedule.find({
@@ -137,17 +167,32 @@ const verifySchedule ={
                     startHour: aux.startHour,
                     startMinute: aux.startMinute
                 })
-                console.log(selectedSchedule.length);
                 quant += selectedSchedule.length;
-            } else {
+                aux.startMinute = 10;
+                selectedSchedule = await Schedule.find({
+                    startDay: aux.startDay,
+                    startHour: aux.startHour,
+                    startMinute: aux.startMinute
+                })
+                quant += selectedSchedule.length;
+            } else { // REFEITO
                 aux.startMinute += 10;
                 selectedSchedule = await Schedule.find({
                     startDay: aux.startDay,
                     startHour: aux.startHour,
                     startMinute: aux.startMinute
                 })
-                console.log(selectedSchedule.length);
                 quant += selectedSchedule.length;
+                if (aux.startMinute == 50) { // REFEITO
+                    aux.startHour += 1;
+                    aux.startMinute = 0;
+                    selectedSchedule = await Schedule.find({
+                        startDay: aux.startDay,
+                        startHour: aux.startHour,
+                        startMinute: aux.startMinute
+                    })
+                    quant += selectedSchedule.length;
+                }
             }
         }
         return quant;
