@@ -81,7 +81,7 @@
 	</p>
 
 
-- ### **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo GET:**
+- ### **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo POST:**
 
 	Deverá enviar um JSON da seguinte maneira (lembre-se de enviar o token do usuário):
 	
