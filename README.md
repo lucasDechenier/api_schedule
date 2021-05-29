@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="#-Tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-Executando">Executando</a>
+  <a href="#-Executando">Executando</a> 
 </p>
 
 ## 🖥️ Implementações:
@@ -24,9 +24,9 @@
 
 ### 😁 Usuarios:
 
-##### _Utilize no Header de todas as rotas o Content-Type como application/json_
+##### Utilize no Header de todas as rotas o Content-Type como application/json
 
-- ### _Registro_
+- ### Registro
 
   ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
@@ -56,7 +56,7 @@
     }
   ```
 
-- ### _Login_
+- ### Login
 
   ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
@@ -90,7 +90,7 @@
     <img alt="header1" src="assets/header1.jpg" />
   </p>
 
-- ### _Agendar um atendimento_
+- ### Agendar um atendimento
 
   ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
@@ -124,7 +124,7 @@
     }
     ```
 
-- ### _Ver tarefas agendadas_
+- ### Ver tarefas agendadas
 
   ![](https://img.shields.io/badge/get-BD93F9.svg?&style=for-the-badge&logoColor=white)
 
@@ -167,39 +167,39 @@
     }]
   ```
 
-- ### _Cancelar uma tarefa já agendada_
+- ### Cancelar uma tarefa já agendada
 
-      ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
+  ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
 
-      **/user/cancel/schedule**
+  **/user/cancel/schedule**
 
-      Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
+  Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
 
-      ```
-      {
-      "id": "60a026f6d1f40a0e00e0a8bd"
-      }
-      ```
+  ```
+  {
+  "id": "60a026f6d1f40a0e00e0a8bd"
+  }
+  ```
 
-      - Só se pode cancelar um agendamento que existe.
-      - Os agendamentos só podem ser cancelados por aquele usuário que o criou, ou seja, não é permitido cancelar agendamento de outro usuário pela rota USER.
-      - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
+  - Só se pode cancelar um agendamento que existe.
+  - Os agendamentos só podem ser cancelados por aquele usuário que o criou, ou seja, não é permitido cancelar agendamento de outro usuário pela rota USER.
+  - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
 
-      Como resposta irá obter o id da tarefa que foi cancelada com status 200:
+  Como resposta irá obter o id da tarefa que foi cancelada com status 200:
 
-      ```
-      60a026f6d1f40a0e00e0a8bd
-      ```
+  ```
+  60a026f6d1f40a0e00e0a8bd
+  ```
 
-      Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
+  Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
-  &nbsp;
+&nbsp;
 
 ### 🔐 Administradores:
 
-#### _Utilize no Header de todas as rotas o Content-Type como application/json_
+#### Utilize no Header de todas as rotas o Content-Type como application/json
 
-### _Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:_
+### Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:
 
 ```
 {
@@ -208,9 +208,9 @@
 }
 ```
 
-#### _O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:_
+#### O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:
 
-- ### _Login_
+- ### Login
 
   ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
@@ -244,7 +244,7 @@
     <img alt="header1" src="assets/header1.jpg" />
   </p>
 
-- ### _Ver tarefas agendadas_
+- ### Ver tarefas agendadas
 
   ![](https://img.shields.io/badge/get-BD93F9.svg?&style=for-the-badge&logoColor=white)
 
@@ -279,7 +279,7 @@
     }]
   ```
 
-- ### _Cancelar uma tarefa já agendada._
+- ### Cancelar uma tarefa já agendada
 
   ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
 
@@ -306,7 +306,7 @@
 
   Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
-- ### _Completar uma tarefa, serviço terminado_
+- ### Completar uma tarefa, serviço terminado
 
   ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
 
