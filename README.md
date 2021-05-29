@@ -35,25 +35,25 @@
   Deverá enviar um JSON da seguinte maneira:
 
   ```
-    {
-    "name": "Nome Desejado",
-    "email": "email@extensãodoemail.com.br",
-    "password": "senha123"
+  {
+  "name": "Nome Desejado",
+  "email": "email@extensãodoemail.com.br",
+  "password": "senha123"
   }
   ```
 
   Como resposta irá obter o seguinte JSON com a senha já criptografada:
 
   ```
-    {
-    "admin": false,
-    "_id": "60a272be07d02d3820b4646a",
-    "name": "Nome Desejado",
-    "email": "email@extensãodoemail.com.br",
-    "password": "$2a$10$zA11xRZ9gSVw4sH3NXzl4.Jx1/nCwMJA0I7nGs/u6ZwhVeBM3MZz2",
-    "createdAt": "2021-05-17T13:42:22.494Z",
-    "__v": 0
-    }
+  {
+  "admin": false,
+  "_id": "60a272be07d02d3820b4646a",
+  "name": "Nome Desejado",
+  "email": "email@extensãodoemail.com.br",
+  "password": "$2a$10$zA11xRZ9gSVw4sH3NXzl4.Jx1/nCwMJA0I7nGs/u6ZwhVeBM3MZz2",
+  "createdAt": "2021-05-17T13:42:22.494Z",
+  "__v": 0
+  }
   ```
 
 - ### Login
@@ -74,9 +74,9 @@
   Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
 
   ```
-    {
-    "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
-    }
+  {
+  "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+  }
   ```
 
   _Todas as rotas agora vão precisar receber no header o token dessa maneira:_
@@ -87,7 +87,7 @@
 
   _Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:_
   <p align="center">
-    <img alt="header1" src="assets/header1.jpg" />
+  <img alt="header1" src="assets/header1.jpg" />
   </p>
 
 - ### Agendar um atendimento
@@ -99,11 +99,11 @@
   Deverá enviar um JSON da seguinte maneira (lembre-se de enviar o token do usuário):
 
   ```
-    {
+  {
    "startDay": 16,
    "startHour": 15,
    "startMinute": 50
-    }
+  }
   ```
 
   - Os agendamentos só podem ser feitos de 10 em 10 minutos.
@@ -219,10 +219,10 @@
   Deverá enviar um JSON da seguinte maneira:
 
   ```
-    {
+  {
     "email": "admin@hotmail.com",
     "password": "admin123"
-    }
+  }
   ```
 
   Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
@@ -240,9 +240,9 @@
   ```
 
   _Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:_
-  <p align="center">
-    <img alt="header1" src="assets/header1.jpg" />
-  </p>
+    <p align="center">
+      <img alt="header1" src="assets/header1.jpg" />
+    </p>
 
 - ### Ver tarefas agendadas
 
