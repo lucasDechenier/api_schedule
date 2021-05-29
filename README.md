@@ -21,23 +21,30 @@
 - Só podem existir 3 agendamentos ativos ocorrendo ao mesmo momento, no caso de agendamento futuros, caso em um intervalo de 40 minutos seja feito 3 agendamentos, o quarto agendamento não estará disponível e isso é obtido como resposta da requisição.
 
 ## ✈️ Rotas:
-### 😁 Usuarios:
-##### **Utilize no Header de todas as rotas o Content-Type como application/json**
-- ### **Registro (http://localhost:3000/user/register) rota do tipo POST:**
 
-	Deverá enviar um JSON da seguinte maneira:
-	
-	```
+### 😁 Usuarios:
+
+##### _Utilize no Header de todas as rotas o Content-Type como application/json_
+
+- ### _Registro_
+
+  ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
+
+  **/user/register**
+
+  Deverá enviar um JSON da seguinte maneira:
+
+  ```
     {
     "name": "Nome Desejado",
     "email": "email@extensãodoemail.com.br",
     "password": "senha123"
-	}
-    ```
-	
-	Como resposta irá obter o seguinte JSON com a senha já criptografada:
-	
-	```
+  }
+  ```
+
+  Como resposta irá obter o seguinte JSON com a senha já criptografada:
+
+  ```
     {
     "admin": false,
     "_id": "60a272be07d02d3820b4646a",
@@ -47,58 +54,64 @@
     "createdAt": "2021-05-17T13:42:22.494Z",
     "__v": 0
     }
-    ```
+  ```
 
+- ### _Login_
 
-- ### **login (http://localhost:3000/user/login) rota do tipo POST:**
+  ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar um JSON da seguinte maneira:
-	
-    ```
-    {
-    "email": "email@extensãodoemail.com.br",
-    "password": "senha123"
-    }
-    ```
-	
-	Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
-	
-	```
+  **/user/login**
+
+  Deverá enviar um JSON da seguinte maneira:
+
+  ```
+  {
+  "email": "email@extensãodoemail.com.br",
+  "password": "senha123"
+  }
+  ```
+
+  Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
+
+  ```
     {
     "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
     }
-    ```
+  ```
 
-	**Todas as rotas agora vão precisar receber no header o token dessa maneira:**
-	
-	```
+  _Todas as rotas agora vão precisar receber no header o token dessa maneira:_
+
+  ```
     headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
-    ```
+  ```
 
-	**Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:**
-	<p align="center">
+  _Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:_
+  <p align="center">
     <img alt="header1" src="assets/header1.jpg" />
-	</p>
+  </p>
 
+- ### _Agendar um atendimento_
 
-- ### **Agendar um atendimento (http://localhost:3000/user/schedule) rota do tipo POST:**
+  ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar um JSON da seguinte maneira (lembre-se de enviar o token do usuário):
-	
-	```
+  **/user/schedule**
+
+  Deverá enviar um JSON da seguinte maneira (lembre-se de enviar o token do usuário):
+
+  ```
     {
    "startDay": 16,
    "startHour": 15,
    "startMinute": 50
     }
-    ```
+  ```
 
-	- Os agendamentos só podem ser feitos de 10 em 10 minutos.
-	- Só pode ser feito um agendamento no mesmo horário a não ser que seja feito por outro usuário.
-	- Caso exista dentro de 40 minutos 3 agendamentos que vão ser realizados de forma simultânea, o quarto agendamento a tentar ser realizado não irá ser permitido.
-    
+  - Os agendamentos só podem ser feitos de 10 em 10 minutos.
+  - Só pode ser feito um agendamento no mesmo horário a não ser que seja feito por outro usuário.
+  - Caso exista dentro de 40 minutos 3 agendamentos que vão ser realizados de forma simultânea, o quarto agendamento a tentar ser realizado não irá ser permitido.
+
     Como resposta irá obter o seguinte JSON com a senha já criptografada:
-	
+
     ```
     {
     "admin": false,
@@ -111,20 +124,23 @@
     }
     ```
 
+- ### _Ver tarefas agendadas_
 
-- ### **Ver tarefas agendadas (http://localhost:3000/user/viewSchedule) rota do tipo GET:**
+  ![](https://img.shields.io/badge/get-BD93F9.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar via header o token do usuário que deseja ver suas tarefas:
+  **/user/viewSchedule**
 
-    ```
-    headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
-    ```
+  Deverá enviar via header o token do usuário que deseja ver suas tarefas:
 
-	- Os agendamentos só podem ser vistos por cada usuário, ou seja, um usuário não tem permissão para ver agendamento de outro.
-    
+  ```
+  headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+  ```
+
+  - Os agendamentos só podem ser vistos por cada usuário, ou seja, um usuário não tem permissão para ver agendamento de outro.
+
     Como resposta irá obter o seguinte JSON com as tarefas do usuário:
-	
-	```
+
+  ```
     [{
     "_id": "60a27add50c3592a4c09276c",
     "userId": "60a272be07d02d3820b4646a",
@@ -149,34 +165,41 @@
     "startMinute": 10,
     "__v": 0
     }]
-    ```
+  ```
 
+- ### _Cancelar uma tarefa já agendada_
 
-- ### **Cancelar uma tarefa já agendada (http://localhost:3000/user/cancel/schedule) rota do tipo DELETE:**
+      ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
+      **/user/cancel/schedule**
 
-    ```
-    {
-	"id": "60a026f6d1f40a0e00e0a8bd"
-    }
-    ```
+      Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
 
-    - Só se pode cancelar um agendamento que existe.
-	- Os agendamentos só podem ser cancelados por aquele usuário que o criou, ou seja, não é permitido cancelar agendamento de outro usuário pela rota USER.
-    - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
-    
-    Como resposta irá obter o id da tarefa que foi cancelada com status 200:
-	
-	```
-    60a026f6d1f40a0e00e0a8bd
-    ```
+      ```
+      {
+      "id": "60a026f6d1f40a0e00e0a8bd"
+      }
+      ```
 
-    Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
-&nbsp;
+      - Só se pode cancelar um agendamento que existe.
+      - Os agendamentos só podem ser cancelados por aquele usuário que o criou, ou seja, não é permitido cancelar agendamento de outro usuário pela rota USER.
+      - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
+
+      Como resposta irá obter o id da tarefa que foi cancelada com status 200:
+
+      ```
+      60a026f6d1f40a0e00e0a8bd
+      ```
+
+      Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
+
+  &nbsp;
+
 ### 🔐 Administradores:
-#### **Utilize no Header de todas as rotas o Content-Type como application/json**
-### **Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:**
+
+#### _Utilize no Header de todas as rotas o Content-Type como application/json_
+
+### _Existe apenas um usuário presente no banco de dados para teste, ele é da seguinte forma:_
 
 ```
 {
@@ -185,52 +208,59 @@
 }
 ```
 
-#### **O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:**
+#### _O registro foi feito diretamente no banco de dados por questões de segurança, abaixo seguem as rotas disponíveis:_
 
-- ### **Login (http://localhost:3000/admin/login) rota do tipo POST:**
+- ### _Login_
 
-	Deverá enviar um JSON da seguinte maneira:
-	
-	```
+  ![](https://img.shields.io/badge/post-49F37B.svg?&style=for-the-badge&logoColor=white)
+
+  **/admin/login**
+
+  Deverá enviar um JSON da seguinte maneira:
+
+  ```
     {
     "email": "admin@hotmail.com",
     "password": "admin123"
     }
-    ```
-	
-	Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
-	
-    ```
-    {
-    "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyN2RhNzUwYzM1OTJhNGMwOTI3NmYiLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjIxMjYxODEwfQ.KLct0pGR5OFEr1G9tffM2qTXNaWrgsJqH0KnOm1Is3w"
-    }
-    ```
+  ```
 
-	**Todas as rotas agora vão precisar receber no header o token dessa maneira:**
-	
-	```
+  Em caso de sucesso receberá uma resposta que será o Token de autorização do usuário:
+
+  ```
+  {
+  "authorizationToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyN2RhNzUwYzM1OTJhNGMwOTI3NmYiLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjIxMjYxODEwfQ.KLct0pGR5OFEr1G9tffM2qTXNaWrgsJqH0KnOm1Is3w"
+  }
+  ```
+
+  _Todas as rotas agora vão precisar receber no header o token dessa maneira:_
+
+  ```
     headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
-    ```
+  ```
 
-	**Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:**
-	<p align="center">
+  _Caso utilize o insomnia, utilize a imagem abaixo, não passe o token entre aspas:_
+  <p align="center">
     <img alt="header1" src="assets/header1.jpg" />
-	</p>
+  </p>
 
+- ### _Ver tarefas agendadas_
 
-- ### **Ver tarefas agendadas (http://localhost:3000/admin/viewSchedule) rota do tipo GET:**
+  ![](https://img.shields.io/badge/get-BD93F9.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar via header o token do administrador/operador que deseja ver as tarefas que estão agendadas no sistema:
+  **/admin/viewSchedule)**
 
-    ```
-    headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
-    ```
+  Deverá enviar via header o token do administrador/operador que deseja ver as tarefas que estão agendadas no sistema:
 
-    - O operador do sistema pode ver o agendamento de todos os usuários.
-    
-    Como resposta irá obter o seguinte JSON com as tarefas de todos os usuários:
-	
-	```
+  ```
+  headers('authorization-token') = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGEyNzJiZTA3ZDAyZDM4MjBiNDY0NmEiLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTYyMTI1OTE0MH0.RWKrh6ALvT2y9y1GApffrl6DPlSFkPjeHBryEqt5WMw"
+  ```
+
+  - O operador do sistema pode ver o agendamento de todos os usuários.
+
+  Como resposta irá obter o seguinte JSON com as tarefas de todos os usuários:
+
+  ```
     [{
     "_id": "60a2781207d02d3820b4646b",
     "userId": "60a14e0ec263702c28789b23",
@@ -247,73 +277,86 @@
     "startMinute": 50,
     "__v": 0
     }]
-    ```
+  ```
 
+- ### _Cancelar uma tarefa já agendada._
 
-- ### **Cancelar uma tarefa já agendada (http://localhost:3000/admin/cancel/schedule) rota do tipo DELETE:**
+  ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
 
-	Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
+  **/admin/cancel/schedule**
 
-    ```
-    {
-	"id": "60a14fc71d2de14ba07c095b"
-    }
-    ```
-    - Só se pode cancelar um agendamento que existe.
-	- Pela rota admin, o operador pode realizar o cancelamento de qualquer usuário, não há restrição.
-    - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
-    
-    Como resposta irá obter o id da tarefa que foi cancelada com status 200:
-	```
-    60a14fc71d2de14ba07c095b
-    ```
+  Deverá enviar um JSON contendo o id da tarefa a ser deletada da seguinte forma (lembre-se de enviar o token do usuário):
 
-    Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
+  ```
+  {
+  "id": "60a14fc71d2de14ba07c095b"
+  }
+  ```
 
+  - Só se pode cancelar um agendamento que existe.
+  - Pela rota admin, o operador pode realizar o cancelamento de qualquer usuário, não há restrição.
 
-- ### **Completar uma tarefa, serviço terminado (http://localhost:3000/admin/Complete/schedule) rota do tipo DELETE:**
+  - O cancelamento só pode ser feito até 6 horas antes da tarefa se iniciar.
 
-	Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada (lembre-se de enviar o token do usuário):
+  Como resposta irá obter o id da tarefa que foi cancelada com status 200:
 
-    ```
-    {
-	"id": "60a14fc71d2de14ba07c095b"
-    }
-    ```
+  ```
+  60a14fc71d2de14ba07c095b
+  ```
 
-    - Só se pode completar uma tarefa que já foi iniciada.
-    
-    Como resposta irá obter o id da tarefa que foi cancelada com status 200:
+  Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
-	```
-    60a27add50c3592a4c09276c
-    ```
+- ### _Completar uma tarefa, serviço terminado_
 
-    Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
+  ![](https://img.shields.io/badge/delete-FF4D4B.svg?&style=for-the-badge&logoColor=white)
+
+  **admin/Complete/schedule**
+
+  Deverá enviar um JSON contendo o id da tarefa a que deseja ser completada (lembre-se de enviar o token do usuário):
+
+  ```
+  {
+  "id": "60a14fc71d2de14ba07c095b"
+  }
+  ```
+
+  - Só se pode completar uma tarefa que já foi iniciada.
+
+  Como resposta irá obter o id da tarefa que foi cancelada com status 200:
+
+  ```
+  60a27add50c3592a4c09276c
+  ```
+
+  Caso não tenha sucesso, irá receber respostas diferentes a depender do erro encontrado.
 
 ## 🧪 Tecnologias
-[![JavaScript](https://camo.githubusercontent.com/62d37abe760867620e0baea1066303719d630a82936837ba7bff6b0c754e3c9f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742532302d2532333332333333302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)   ![NodeJS](https://camo.githubusercontent.com/cc96d7d28a6ca21ddbb1f2521d751d375230ed840271e6a4c8694cf87cc60c14/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6f64652e6a732532302d2532333433383533442e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6e6f64652e6a73266c6f676f436f6c6f723d7768697465)
 
-### 🔨  Dependências
+[![JavaScript](https://camo.githubusercontent.com/62d37abe760867620e0baea1066303719d630a82936837ba7bff6b0c754e3c9f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742532302d2532333332333333302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) ![NodeJS](https://camo.githubusercontent.com/cc96d7d28a6ca21ddbb1f2521d751d375230ed840271e6a4c8694cf87cc60c14/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6f64652e6a732532302d2532333433383533442e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6e6f64652e6a73266c6f676f436f6c6f723d7768697465)
+
+### 🔨 Dependências
 
 ###### Banco de dados (Está em núvem)
+
 - [MongoDB com Mongoose](https://mongoosejs.com/)
 
 ###### Depedências
+
 - [Node Express](https://expressjs.com/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [jsonwebtoken](https://jwt.io/)
 - [bcryptjs](https://www.npmjs.com/package/bcrypt)
 
-
 ## 🚀 Executando
 
-Clone o projeto e acesso a pasta dos arquivos 
+Clone o projeto e acesso a pasta dos arquivos
 
 ```bash
 $ git clone https://github.com/lucasDechenier/api_schedule
 ```
+
 Siga as etapas para instalação
+
 ```bash
 
 # Instalando as dependências
